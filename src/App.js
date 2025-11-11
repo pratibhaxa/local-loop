@@ -1,20 +1,18 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { Box, Flex } from '@chakra-ui/react';
 import Signup from './Signup';
-import Welcome from './Welcome';
+
+const Login = () => <div>Login Page</div>;
 
 function App() {
   return (
     <Router>
-      <Flex minHeight="100vh" width="full" align="center" justifyContent="center">
-        <Box borderWidth={1} px={4} width="full" maxWidth="500px" borderRadius={4} textAlign="center" boxShadow="lg">
-          <Routes>
-            <Route path="/" element={<Signup />} />
-            <Route path="/welcome" element={<Welcome />} />
-          </Routes>
-        </Box>
-      </Flex>
+      <div className="bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen flex items-center justify-center p-4">
+        <Routes>
+          <Route path="/" element={<Signup />} />
+          <Route path="/login" element={<Login />} />
+        </Routes>
+      </div>
     </Router>
   );
 }
