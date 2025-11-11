@@ -1,18 +1,22 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Signup from './Signup';
-
-const Login = () => <div>Login Page</div>;
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import SignUp from './components/SignUp';
+import Login from './components/Login';
+import Welcome from './components/Welcome';
+import Terms from './components/Terms';
+import Privacy from './components/Privacy';
 
 function App() {
   return (
     <Router>
-      <div className="bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen flex items-center justify-center p-4">
-        <Routes>
-          <Route path="/" element={<Signup />} />
-          <Route path="/login" element={<Login />} />
-        </Routes>
-      </div>
+      <Routes>
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/welcome" element={<Welcome />} />
+        <Route path="/terms" element={<Terms />} />
+        <Route path="/privacy" element={<Privacy />} />
+        <Route path="*" element={<Navigate to="/signup" />} />
+      </Routes>
     </Router>
   );
 }
